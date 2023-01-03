@@ -35,6 +35,11 @@ const search = debounce(async (searchTerm) => {
     const url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info|extracts&inprop=url&utf8=&format=json&origin=*&srlimit=10&srsearch=${searchTerm}`
     const response = await fetch(url)
     const searchResults = await response.json()
+    
+    // short method 
+    /* const searchResults = await fetch(
+      `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info|extracts&inprop=url&utf8=&format=json&origin=*&srlimit=10&srsearch=${searchTerm}`
+    ).then((response) => response.json()) */
 
     // render search result
     const searchResultHtml = generateSearchResultHTML(
